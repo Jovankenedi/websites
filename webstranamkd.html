@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="mk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kenedy <progress></progress> - Услуги за поправка на компјутери</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .hero-gradient {
+            background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .testimonial-card {
+            transition: all 0.3s ease;
+        }
+        .testimonial-card:hover {
+            transform: scale(1.03);
+        }
+        .contact-input:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.3);
+        }
+    </style>
+</head>
+<body class="font-sans antialiased text-gray-800">
+    <!-- Навигација -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <i class="fas fa-laptop-code text-blue-600 text-2xl mr-2"></i>
+                        <span class="text-xl font-bold text-blue-600">TechFix Pro</span>
+                    </div>
+                </div>
+                <div class="hidden md:ml-6 md:flex md:items-center md:space-x-8">
+                    <a href="#services" class="text-gray-900 hover:text-blue-600 px-3 py-2 text-sm font-medium">Услуги</a>
+                    <a href="#pricing" class="text-gray-900 hover:text-blue-600 px-3 py-2 text-sm font-medium">Цени</a>
+                    <a href="#about" class="text-gray-900 hover:text-blue-600 px-3 py-2 text-sm font-medium">За нас</a>
+                    <a href="#testimonials" class="text-gray-900 hover:text-blue-600 px-3 py-2 text-sm font-medium">Референци</a>
+                    <a href="#contact" class="bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-700 transition duration-300">Закажи</a>
+                </div>
+                <div class="-mr-2 flex items-center md:hidden">
+                    <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Мобилно мени -->
+        <div id="mobile-menu" class="hidden md:hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#services" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">Услуги</a>
+                <a href="#pricing" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">Цени</a>
+                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">За нас</a>
+                <a href="#testimonials" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">Референци</a>
+                <a href="#contact" class="block w-full text-center bg-blue-600 text-white px-4 py-2 rounded-md text-base font-medium hover:bg-blue-700 transition duration-300">Закажи</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Херо секција -->
+    <section class="hero-gradient text-white">
+        <div class="max-w-7xl mx-auto py-24 px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-8 items-center">
+                <div class="mb-12 lg:mb-0">
+                    <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-6">
+                        Стручни услуги за поправка на компјутери
+                    </h1>
+                    <p class="text-xl md:text-2xl mb-8 opacity-90">
+                        Брзи, сигурни и достапни решенија за сите ваши технолошки проблеми. Во услуга на заедницата од 2010 година.
+                    </p>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <a href="#contact" class="bg-white text-blue-600 px-6 py-3 rounded-md text-lg font-semibold hover:bg-gray-100 transition duration-300 text-center">
+                            Побарај понуда
+                        </a>
+                        <a href="tel:+1234567890" class="border-2 border-white px-6 py-3 rounded-md text-lg font-semibold hover:bg-white hover:text-blue-600 transition duration-300 text-center">
+                            <i class="fas fa-phone mr-2"></i> (123) 456-7890
+                        </a>
+                    </div>
+                </div>
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" 
+                         alt="Поправка на компјутер" 
+                         class="rounded-lg shadow-2xl w-full h-auto">
+                    <div class="absolute -bottom-6 -right-6 bg-yellow-400 text-gray-900 px-6 py-3 rounded-lg shadow-lg">
+                        <div class="text-sm font-semibold">24/7 итна помош</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Статистики -->
+    <section class="bg-gray-50 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-css-4 gap-8 text-center">
+                <div class="p-4">
+                    <div class="text-4xl font-bold text-blue-600 mb-2">10+</div>
+                    <div class="text-gray-600 font-medium">Години искуство</div>
+                </div>
+                <div class="p-4">
+                    <div class="text-4xl font-bold text-blue-600 mb-2">5,000+</div>
+                    <div class="text-gray-600 font-medium">Задоволни клиенти</div>
+                </div>
+                <div class="p-4">
+                    <div class="text-4xl font-bold text-blue-600 mb-2">24/7</div>
+                    <div class="text-gray-600 font-medium">Поддршка достапна</div>
+                </div>
+                <div class="p-4">
+                    <div class="text-4xl font-bold text-blue-600 mb-2">1 ч</div>
+                    <div class="text-gray-600 font-medium">Време на одговор</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Услуги -->
+    <section id="services" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+                    Наши компјутерски услуги
+                </h2>
+                <p class="mt-4 max-w-2xl text-xl text-gray-600 mx-auto">
+                    Сеопфатни решенија за сите ваши компјутерски потреби
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Услуга 1 -->
+                <div class="service-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 ease-in-out">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="flex-shrink-0 bg-blue-100 p-3 rounded-full">
+                                <i class="fas fa-desktop text-blue-600 text-xl"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Поправка на хардвер</h3>
+                        <p class="text-gray-600 mb-4">
+                            Од замена на екрани до поправка на матични плочи, ги поправаме сите хардверски проблеми со прецизност и грижа.
+                        </p>
+                        <ul class="space-y-2 text-gray-600">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Поправка на лаптопи и десктопи</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Замена на компоненти</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Дијагностички услуги</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Услуга 2 -->
+                <div class="service-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 ease-in-out">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="flex-shrink-0 bg-blue-100 p-3 rounded-full">
+                                <i class="fas fa-shield-alt text-blue-600 text-xl"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Отстранување на вируси</h3>
+                        <p class="text-gray-600 mb-4">
+                            Заштитете ги вашите податоци и вратете ја перформансата на вашиот компјутер со нашите темелни услуги за отстранување на вируси.
+                        </p>
+                        <ul class="space-y-2 text-gray-600">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Отстранување на малвер и шпионски софтвер</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Оптимизација на системот</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Превентивни мерки</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Услуга 3 -->
+                <div class="service-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 ease-in-out">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="flex-shrink-0 bg-blue-100 p-3 rounded-full">
+                                <i class="fas fa-database text-blue-600 text-xl"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Враќање на податоци</h3>
+                        <p class="text-gray-600 mb-4">
+                            Случајно избришани датотеки? Паднал хард диск? Специјализирани сме за враќање на вашите вредни податоци.
+                        </p>
+                        <ul class="space-y-2 text-gray-600">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Враќање на избришани датотеки</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Враќање на хард диск</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>RAID враќање</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Услуга 4 -->
+                <div class="service-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 ease-in-out">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="flex-shrink-0 bg-blue-100 p-3 rounded-full">
+                                <i class="fas fa-network-wired text-blue-600 text-xl"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Мрежни решенија</h3>
+                        <p class="text-gray-600 mb-4">
+                            Поставување, решавање проблеми и оптимизација на домашни или бизнис мрежи за непречена поврзаност.
+                        </p>
+                        <ul class="space-y-2 text-gray-600">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Поставување и оптимизација на Wi-Fi</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Мрежна безбедност</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Бизнис мрежни решенија</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Услуга 5 -->
+                <div class="service-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 ease-in-out">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="flex-shrink-0 bg-blue-100 p-3 rounded-full">
+                                <i class="fas fa-tools text-blue-600 text-xl"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Поддршка за PC</h3>
+                        <p class="text-gray-600 mb-4">
+                            Дајте му нов живот на вашиот компјутер со нашата сеопфатна услуга за поддршка.
+                        </p>
+                        <ul class="space-y-2 text-gray-600">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Чистење на системот</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Ажурирање на софтвер</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Оптимизација на перформанси</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Услуга 6 -->
+                <div class="service-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 ease-in-out">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="flex-shrink-0 bg-blue-100 p-3 rounded-full">
+                                <i class="fas fa-home text-blue-600 text-xl"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Поддршка на место</h3>
+                        <p class="text-gray-600 mb-4">
+                            Не можете да го донесете вашиот компјутер кај нас? Ќе дојдеме кај вас со нашата погодна услуга на место.
+                        </p>
+                        <ul class="space-y-2 text-gray-600">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Посети на дом и канцеларија</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Бизнис IT поддршка</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Итни услуги</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Цени -->
+    <section id="pricing" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+                    Транспарентни цени
+                </h2>
+                <p class="mt-4 max-w-2xl text-xl text-gray-600 mx-auto">
+                    Без скриени трошоци. Квалитетна услуга по фер цени.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Основен план -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div class="px-6 py-8 border-b border-gray-200">
+                        <h3 class="text-2xl font-bold text-gray-900">Основна услуга</h3>
+                        <div class="mt-4 flex items-baseline">
+                            <span class="text-4xl font-extrabold text-blue-600">2.999 ден.</span>
+                            <span class="ml-1 text-lg font-medium text-gray-500">/услуга</span>
+                        </div>
+                        <p class="mt-4 text-gray-600">
+                            Идеално за мали проблеми и дијагностика
+                        </p>
+                    </div>
+                    <div class="px-6 pt-6 pb-8">
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Отстранување на вируси и малвер</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Инсталација на софтвер</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Основна проверка на хардвер</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Оптимизација на системот</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>1 месец гаранција</span>
+                            </li>
+                        </ul>
+                        <div class="mt-8">
+                            <button class="w-full bg-blue-600 text-white px-6 py-3 rounded-md text-lg font-semibold hover:bg-blue-700 transition duration-300">
+                                Избери план
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Премиум план -->
+                <div class="bg-white rounded-lg shadow-xl overflow-hidden transform scale-105">
+                    <div class="bg-blue-600 px-6 py-4">
+                        <p class="text-white font-semibold">Најпопуларно</p>
+                    </div>
+                    <div class="px-6 py-8 border-b border-gray-200">
+                        <h3 class="text-2xl font-bold text-gray-900">Премиум услуга</h3>
+                        <div class="mt-4 flex items-baseline">
+                            <span class="text-4xl font-extrabold text-blue-600">5.999 ден.</span>
+                            <span class="ml-1 text-lg font-medium text-gray-500">/услуга</span>
+                        </div>
+                        <p class="mt-4 text-gray-600">
+                            Сеопфатни решенија за повеќето компјутерски проблеми
+                        </p>
+                    </div>
+                    <div class="px-6 pt-6 pb-8">
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Сите основни услуги се вклучени</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Поправка на хардвер</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Враќање на податоци (основно)</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Решавање на мрежни проблеми</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>3 месеци гаранција</span>
+                            </li>
+                        </ul>
+                        <div class="mt-8">
+                            <button class="w-full bg-blue-600 text-white px-6 py-3 rounded-md text-lg font-semibold hover:bg-blue-700 transition duration-300">
+                                Избери план
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Бизнис план -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div class="px-6 py-8 border-b border-gray-200">
+                        <h3 class="text-2xl font-bold text-gray-900">Бизнис поддршка</h3>
+                        <div class="mt-4 flex items-baseline">
+                            <span class="text-4xl font-extrabold text-blue-600">11.499 ден.</span>
+                            <span class="ml-1 text-lg font-medium text-gray-500">/месечно</span>
+                        </div>
+                        <p class="mt-4 text-gray-600">
+                            Континуирана IT поддршка за мали бизниси
+                        </p>
+                    </div>
+                    <div class="px-6 pt-6 pb-8">
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Сите премиум услуги се вклучени</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Неограничена далечинска поддршка</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Приоритетна услуга</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Посети на место (2/месечно)</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>6 месеци гаранција</span>
+                            </li>
+                        </ul>
+                        <div class="mt-8">
+                            <button class="w-full bg-blue-600 text-white px-6 py-3 rounded-md text-lg font-semibold hover:bg-blue-700 transition duration-300">
+                                Избери план
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <p class="text-gray-600">
+                    Ви треба нешто посебно? <a href="#contact" class="text-blue-600 font-medium hover:underline">Контактирајте не</a> за персонализирана понуда.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- За нас -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
+                <div class="mb-12 lg:mb-0">
+                    <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" 
+                         alt="Компјутерски техничар" 
+                         class="rounded-lg shadow-xl w-full h-auto">
+                </div>
+                <div>
+                    <h2 class="text-3xl font-extrabold text-gray-900 mb-6">
+                        За TechFix Pro
+                    </h2>
+                    <p class="text-gray-600 mb-6">
+                        Основана во 2010 година од Џон Смит, TechFix Pro порасна од мал бизнис од дома до водечка услуга за поправка на компјутери во областа. Нашата мисија е да обезбедиме чесни, сигурни и достапни услуги за поправка на компјутери за домашни и бизнис клиенти.
+                    </p>
+                    <p class="text-gray-600 mb-6">
+                        Она што нè прави различни е нашата посветеност на задоволството на клиентите. Ние не ги поправаме само компјутерите - градиме односи. Нашите техничари не се само високо квалификувани, туку и трпеливи и подготвени да ги објаснат техничките проблеми на едноставен начин.
+                    </p>
+                    <div class="bg-blue-50 p-6 rounded-lg">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <i class="fas fa-award text-blue-600 text-2xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-bold text-gray-900">Сертифицирани техничари</h4>
+                                <p class="mt-1 text-gray-600">
+                                    Сите наши техничари се A+ сертифицирани и се подложуваат на континуирана обука за да останат во тек со најновите технологии.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Референци -->
+    <section id="testimonials" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+                    Што велат нашите клиенти
+                </h2>
+                <p class="mt-4 max-w-2xl text-xl text-gray-600 mx-auto">
+                    Не верувајте само на нашиот збор - слушнете ги нашите задоволни клиенти
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Референца 1 -->
+                <div class="testimonial-card bg-white p-8 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="flex-shrink-0">
+                            <img class="h-12 w-12 rounded-full" src="https://randomuser.me/api/portraits/women/32.jpg" alt="Сара Џонсон">
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="text-lg font-bold text-gray-900">Сара Џонсон</h4>
+                            <div class="flex items-center mt-1">
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">
+                        "Мислев дека ги изгубив сите мои семејни фотографии кога мојот лаптоп се распадна. TechFix Pro ги врати сите и го направи мојот компјутер да работи подобро отколку кога било! Вреди секој денар!"
+                    </p>
+                </div>
+                
+                <!-- Референца 2 -->
+                <div class="testimonial-card bg-white p-8 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="flex-shrink-0">
+                            <img class="h-12 w-12 rounded-full" src="https://randomuser.me/api/portraits/men/54.jpg" alt="Мајкл Чен">
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="text-lg font-bold text-gray-900">Мајкл Чен</h4>
+                            <div class="flex items-center mt-1">
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">
+                        "Како сопственик на мал бизнис, се потпирам на моите компјутери. Кога нашиот сервер падна, TechFix Pro не нè врати во функција за ништо време. Нивниот бизнис план за поддршка е спасител."
+                    </p>
+                </div>
+                
+                <!-- Референца 3 -->
+                <div class="testimonial-card bg-white p-8 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="flex-shrink-0">
+                            <img class="h-12 w-12 rounded-full" src="https://randomuser.me/api/portraits/women/68.jpg" alt="Емили Родригез">
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="text-lg font-bold text-gray-900">Емили Родригез</h4>
+                            <div class="flex items-center mt-1">
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">
+                        "Техничарот беше толку трпелив со мене, објаснувајќи ми сè на начин што можев да разберам. Го поправи мојот проблем со вирусите и ми покажа како да го избегнам во иднина. Високо го препорачувам!"
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Контакт -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-16">
+                <div class="mb-12 lg:mb-0">
+                    <h2 class="text-3xl font-extrabold text-gray-900 mb-6">
+                        Контактирајте не
+                    </h2>
+                    <p class="text-gray-600 mb-8">
+                        Имате прашање или ви треба услуга? Пополнете ја формата и ќе ви одговориме во рок од 1 работен ден. За итна помош, ве молиме да не повикате директно.
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex">
+                            <div class="flex-shrink-0 bg-blue-100 p-3 rounded-full">
+                                <i class="fas fa-map-marker-alt text-blue-600"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-bold text-gray-900">Наша локација</h4>
+                                <p class="mt-1 text-gray-600">ул. Техника бр.123, локал 101<br>Скопје, Македонија</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex">
+                            <div class="flex-shrink-0 bg-blue-100 p-3 rounded-full">
+                                <i class="fas fa-phone-alt text-blue-600"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-bold text-gray-900">Телефонски број</h4>
+                                <p class="mt-1 text-gray-600">(123) 456-7890</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex">
+                            <div class="flex-shrink-0 bg-blue-100 p-3 rounded-full">
+                                <i class="fas fa-envelope text-blue-600"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-bold text-gray-900">Емаил адреса</h4>
+                                <p class="mt-1 text-gray-600">support@techfixpro.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex">
+                            <div class="flex-shrink-0 bg-blue-100 p-3 rounded-full">
+                                <i class="fas fa-clock text-blue-600"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-bold text-gray-900">Работно време</h4>
+                                <p class="mt-1 text-gray-600">Понеделник - Петок: 9:00 - 18:00<br>Сабота: 10:00 - 16:00<br>Итна помош достапна 24/7</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="bg-white shadow-xl rounded-lg p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-6">Побарајте услуга</h3>
+                        <form id="contactForm">
+                            <div class="mb-6">
+                                <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Цело име</label>
+                                <input type="text" id="name" name="name" class="contact-input w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500" required>
+                            </div>
+                            <div class="mb-6">
+                                <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Емаил адреса</label>
+                                <input type="email" id="email" name="email" class="contact-input w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500" required>
+                            </div>
+                            <div class="mb-6">
+                                <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Телефонски број</label>
+                                <input type="tel" id="phone" name="phone" class="contact-input w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500" required>
+                            </div>
+                            <div class="mb-6">
+                                <label for="service" class="block text-sm font-medium text-gray-700 mb-1">Потребна услуга</label>
+                                <select id="service" name="service" class="contact-input w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500" required>
+                                    <option value="">Изберете услуга</option>
+                                    <option value="Hardware Repair">Поправка на хардвер</option>
+                                    <option value="Virus Removal">Отстранување на вируси</option>
+                                    <option value="Data Recovery">Враќање на податоци</option>
+                                    <option value="Network Solutions">Мрежни решенија</option>
+                                    <option value="PC Tune-Up">Поддршка за PC</option>
+                                    <option value="On-Site Support">Поддршка на место</option>
+                                    <option value="Other">Друго</option>
+                                </select>
+                            </div>
+                            <div class="mb-6">
+                                <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Опишете го вашиот проблем</label>
+                                <textarea id="message" name="message" rows="4" class="contact-input w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500" required></textarea>
+                            </div>
+                            <div class="mb-6">
+                                <div class="flex items-start">
+                                    <div class="flex items-center h-5">
+                                        <input id="emergency" name="emergency" type="checkbox" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded">
+                                    </div>
+                                    <div class="ml-3 text-sm">
+                                        <label for="emergency" class="font-medium text-gray-700">Означете ако ова е итна помош</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <button type="submit" class="w-full bg-blue-600 text-white px-6 py-3 rounded-md text-lg font-semibold hover:bg-blue-700 transition duration-300">
+                                    Поднесете барање
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ЧПП -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+                    Често поставувани прашања
+                </h2>
+                <p class="mt-4 max-w-2xl text-xl text-gray-600 mx-auto">
+                    Одговори на чести прашања за нашите услуги
+                </p>
+            </div>
+            
+            <div class="max-w-3xl mx-auto">
+                <div class="space-y-6">
+                    <!-- ЧПП 1 -->
+                    <div class="bg-white shadow rounded-lg overflow-hidden">
+                        <button class="faq-toggle w-full flex justify-between items-center p-6 text-left focus:outline-none">
+                            <h3 class="text-lg font-medium text-gray-900">Колку време трае типична поправка?</h3>
+                            <i class="fas fa-chevron-down text-blue-600 transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-content px-6 pb-6 hidden">
+                            <p class="text-gray-600">
+                                Повеќето поправки се завршуваат во рок од 24-48 часа. Едноставни софтверски проблеми често можат да се решат истиот ден, додека посложени хардверски поправки може да траат 2-3 дена во зависност од достапноста на делови. Нудиме забрзана услуга за дополнителна надомест ако ви треба вашиот уред побрзо.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- ЧПП 2 -->
+                    <div class="bg-white shadow rounded-lg overflow-hidden">
+                        <button class="faq-toggle w-full flex justify-between items-center p-6 text-left focus:outline-none">
+                            <h3 class="text-lg font-medium text-gray-900">Дали нудите гаранција на поправките?</h3>
+                            <i class="fas fa-chevron-down text-blue-600 transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-content px-6 pb-6 hidden">
+                            <p class="text-gray-600">
+                                Да! Ние стојме зад сета наша работа. Работата е покриена со 90-дневна гаранција, а деловите доаѓаат со гаранција на производителот (обично 1 година). Ако истиот проблем се појави повторно во гарантниот период, ќе го поправиме без дополнителна наплата.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- ЧПП 3 -->
+                    <div class="bg-white shadow rounded-lg overflow-hidden">
+                        <button class="faq-toggle w-full flex justify-between items-center p-6 text-left focus:outline-none">
+                            <h3 class="text-lg font-medium text-gray-900">Можете ли да ги вратите податоците од компјутер што не се вклучува?</h3>
+                            <i class="fas fa-chevron-down text-blue-600 transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-content px-6 pb-6 hidden">
+                            <p class="text-gray-600">
+                                Во повеќето случаи, да. Се додека хард дискот или SSD-то се физички неоштетени, обично можеме да ги вратиме вашите податоци. Имаме специјализирана опрема што ни овозможува да пристапиме до дискови дури и кога самиот компјутер не функционира. Стапките на успех се обично над 90% за логички дефекти и околу 70% за случаи на физичка оштетување.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- ЧПП 4 -->
+                    <div class="bg-white shadow rounded-lg overflow-hidden">
+                        <button class="faq-toggle w-full flex justify-between items-center p-6 text-left focus:outline-none">
+                            <h3 class="text-lg font-medium text-gray-900">За кои области нудите поддршка на место?</h3>
+                            <i class="fas fa-chevron-down text-blue-600 transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-content px-6 pb-6 hidden">
+                            <p class="text-gray-600">
+                                Обезбедуваме услуга на место во радиус од 20 километри од нашата локација во центарот на градот без дополнителна наплата. За локации надвор од оваа област, наплатуваме мала патарина врз основа на растојанието. Нашите техничари се целосно опремени со алатки и заеднички резервни делови за да се справиме со повеќето поправки за време на првата посета.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- ЧПП 5 -->
+                    <div class="bg-white shadow rounded-lg overflow-hidden">
+                        <button class="faq-toggle w-full flex justify-between items-center p-6 text-left focus:outline-none">
+                            <h3 class="text-lg font-medium text-gray-900">Како да знам дали треба поправка или треба да купам нов компјутер?</h3>
+                            <i class="fas fa-chevron-down text-blue-600 transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-content px-6 pb-6 hidden">
+                            <p class="text-gray-600">
+                                Како општо правило, ако трошоците за поправка се помали од половина од цената на сличен нов уред, поправката обично е подобар избор. Нудиме бесплатни евалуации и секогаш ќе ви дадеме чесна проценка за тоа дали поправката има финансиска смисла. Многу компјутери можат значително да се надоградат за да се продолжи нивниот корисен век за дел од цената на замена.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA секција -->
+    <section class="bg-blue-600 text-white">
+        <div class="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-extrabold mb-6">
+                Подготвени да го поправите вашиот компјутер?
+            </h2>
+            <p class="text-xl mb-8 max-w-3xl mx-auto opacity-90">
+                Не дозволувајте компјутерските проблеми да ве забават. Контактирајте не денес за брза, сигурна услуга.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                <a href="#contact" class="bg-white text-blue-600 px-8 py-4 rounded-md text-lg font-semibold hover:bg-gray-100 transition duration-300">
+                    Побарајте услуга сега
+                </a>
+                <a href="tel:+1234567890" class="border-2 border-white px-8 py-4 rounded-md text-lg font-semibold hover:bg-white hover:text-blue-600 transition duration-300">
+                    <i class="fas fa-phone mr-2"></i> Повикајте не: (123) 456-7890
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer class="bg-gray-900 text-white">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">TechFix Pro</h3>
+                    <p class="text-gray-400">
+                        Вашиот доверлив партнер за поправка на компјутери и IT решенија.
+                    </p>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Услуги</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Поправка на хардвер</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Отстранување на вируси</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Враќање на податоци</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Мрежни решенија</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Поддршка за PC</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Компанија</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#about" class="text-gray-400 hover:text-white">За нас</a></li>
+                        <li><a href="#testimonials" class="text-gray-400 hover:text-white">Референци</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Кариери</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Блог</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white">Контакт</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Поддршка</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Центар за помош</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Услови на користење</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Политика за приватност</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Политика за испорака</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Поврати и гаранција</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="mt-12 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm">
+                    &copy; 2023 TechFix Pro. Сите права се задржани.
+                </p>
+                <div class="mt-4 md:mt-0">
+                    <img src="https://via.placeholder.com/300x50?text=Payment+Methods" alt="Начини на плаќање" class="h-8">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Успешен модал -->
+    <div id="successModal" class="fixed inset-0 z-50 flex items-center justify-center hidden">
+        <div class="absolute inset-0 bg-black opacity-50"></div>
+        <div class="bg-white rounded-lg shadow-xl max-w-md w-full mx-4 z-50">
+            <div class="p-6 text-center">
+                <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-green-100 mb-4">
+                    <i class="fas fa-check text-green-600 text-xl"></i>
+                </div>
+                <h3 class="text-lg font-medium text-gray-900 mb-2">Барањето е поднесено!</h3>
+                <p class="text-gray-600 mb-6">
+                    Ви благодариме што ја контактиравте TechFix Pro. Го примивме вашето барање за услуга и ќе ви одговориме во рок од 1 работен ден.
+                </p>
+                <button id="closeModal" class="w-full bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-700 transition duration-300">
+                    Затвори
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Мобилно мени toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // ЧПП toggle функционалност
+        document.querySelectorAll('.faq-toggle').forEach(button => {
+            button.addEventListener('click', function() {
+                const content = this.nextElementSibling;
+                const icon = this.querySelector('i');
+                
+                content.classList.toggle('hidden');
+                icon.classList.toggle('rotate-180');
+            });
+        });
+
+        // Поднесување на форма
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Во вистинска апликација, би ја испратиле формата до сервер овде
+            // За оваа демо, само ќе го прикажеме успешниот модал
+            
+            const modal = document.getElementById('successModal');
+            modal.classList.remove('hidden');
+            
+            // Ресетирање на форма
+            this.reset();
+        });
+
+        // Затворање на модал
+        document.getElementById('closeModal').addEventListener('click', function() {
+            const modal = document.getElementById('successModal');
+            modal.classList.add('hidden');
+        });
+
+        // Мазна скролање за anchor линкови
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    // Затворање на мобилно мени ако е отворено
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    mobileMenu.classList.add('hidden');
+                    
+                    // Скролање до цел
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
